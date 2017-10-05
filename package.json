@@ -2,6 +2,7 @@
     "name": "ng2-smart-table-demo",
     "description": "Angular Smart Table",
     "author": "Akveo <contact@akveo.com>",
+    "version": "0.0.1",
     "homepage": "http://akveo.github.io/ng2-smart-table/",
     "repository": {
         "type": "git",
