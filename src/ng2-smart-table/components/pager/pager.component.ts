@@ -8,28 +8,40 @@ import { DataSource } from '../../lib/data-source/data-source';
   styleUrls: ['./pager.component.scss'],
   template: `
     <nav *ngIf="shouldShow()" class="ng2-smart-pagination-nav">
+      <div class="ng2-items-perpage">
+        <ul>
+          <li (click)="setItemsPerpage(10)" [ngClass]="{'active' : perPage === 10}">
+            <span>10</span>
+          </li>
+          <li (click)="setItemsPerpage(50)" [ngClass]="{'active' : perPage === 50}">
+            <span>50</span>
+          </li>
+          <li (click)="setItemsPerpage(100)" [ngClass]="{'active' : perPage === 100}">
+            <span>100</span>
+          </li>
+          <li>
+            <div class="ng2-pager-caption">items per page</div>
+          </li>
+        </ul>
+      </div>
       <ul class="ng2-smart-pagination pagination">
-        <li class="ng2-smart-page-item page-item" [ngClass]="{disabled: getPage() == 1}">
-          <a class="ng2-smart-page-link page-link" href="#"
-          (click)="getPage() == 1 ? false : paginate(1)" aria-label="First">
-            <span aria-hidden="true">&laquo;</span>
-            <span class="sr-only">First</span>
-          </a>
-        </li>
-        <li class="ng2-smart-page-item page-item"
+        <li class="ng2-smart-page-item page-item">{{startPos}}-{{endPos}} of {{count}}</li>
+        <!--<li class="ng2-smart-page-item page-item"
         [ngClass]="{active: getPage() == page}" *ngFor="let page of getPages()">
           <span class="ng2-smart-page-link page-link"
           *ngIf="getPage() == page">{{ page }} <span class="sr-only">(current)</span></span>
           <a class="ng2-smart-page-link page-link" href="#"
           (click)="paginate(page)" *ngIf="getPage() != page">{{ page }}</a>
+        </li>-->
+        <li class="ng2-smart-page-item page-item ng2-pager-btn ng2-prev" [ngClass]="{disabled: getPage() == 1}">
+          <a class="ng2-smart-page-link page-link" href="#"
+          (click)="prevPage()" aria-label="First">
+          </a>
         </li>
-
-        <li class="ng2-smart-page-item page-item"
+        <li class="ng2-smart-page-item page-item ng2-pager-btn ng2-next"
         [ngClass]="{disabled: getPage() == getLast()}">
           <a class="ng2-smart-page-link page-link" href="#"
-          (click)="getPage() == getLast() ? false : paginate(getLast())" aria-label="Last">
-            <span aria-hidden="true">&raquo;</span>
-            <span class="sr-only">Last</span>
+          (click)="nextPage()" aria-label="Last">
           </a>
         </li>
       </ul>
@@ -42,10 +54,14 @@ export class PagerComponent implements OnChanges {
 
   @Output() changePage = new EventEmitter<any>();
 
+
   protected pages: Array<any>;
   protected page: number;
   protected count: number = 0;
   protected perPage: number;
+  protected startPos: number;
+  protected endPos: number;
+  protected currentPage: number = 1;
 
   protected dataChangedSub: Subscription;
 
@@ -61,9 +77,14 @@ export class PagerComponent implements OnChanges {
         if (this.isPageOutOfBounce()) {
           this.source.setPage(--this.page);
         }
-
         this.processPageChange(dataChanges);
         this.initPages();
+        /*Set start and end position*/
+        this.startPos = this.perPage >= this.count ? 1 : ((this.page - 1) * this.perPage) + 1;
+        this.endPos = this.currentPage * this.perPage;
+        if(this.endPos > this.count){
+          this.endPos = this.count;
+        }
       });
     }
   }
@@ -84,7 +105,7 @@ export class PagerComponent implements OnChanges {
   }
 
   shouldShow(): boolean {
-    return this.source.count() > this.perPage;
+    return true;
   }
 
   paginate(page: number): boolean {
@@ -106,6 +127,29 @@ export class PagerComponent implements OnChanges {
     return Math.ceil(this.count / this.perPage);
   }
 
+  /*Add nextPage function*/
+  nextPage(): void {
+    if(this.currentPage <= this.getLast()) {
+      if(this.count >= this.perPage) {
+        ++this.currentPage;
+        this.paginate(this.currentPage);
+      }
+    }
+  }
+
+  /*Add prevPage function*/
+  prevPage(): void {
+    if(this.currentPage > 1) {
+      --this.currentPage;
+      this.paginate(this.currentPage);
+    }
+  }
+
+  /*Set per page counter*/
+  setItemsPerpage(number: number): void {
+    this.source.setPaging(1, number, true);
+  }
+
   isPageOutOfBounce(): boolean {
     return (this.page * this.perPage) >= (this.count + this.perPage) && this.page > 1;
   }
@@ -125,7 +169,6 @@ export class PagerComponent implements OnChanges {
       lastOne = lastOne >= pagesCount ? pagesCount : lastOne;
 
       const firstOne = lastOne - showPagesCount + 1;
-
       for (let i = firstOne; i <= lastOne; i++) {
         this.pages.push(i);
       }

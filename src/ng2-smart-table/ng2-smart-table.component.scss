@@ -26,7 +26,10 @@
       overflow: auto;
       word-break: normal;
       word-break: keep-all;
-
+      thead {
+        vertical-align: middle;
+        background: #fafbfc; 
+      }
       tr {
         th {
           font-weight: bold;
@@ -39,7 +42,7 @@
         th {
           font-size: .875em;
           margin: 0;
-          padding: 0.5em 1em;
+          padding: 0.5em 1em 0;
         }
       }
     }

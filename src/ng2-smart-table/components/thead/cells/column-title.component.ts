@@ -10,6 +10,11 @@ import { DataSource } from '../../../lib/data-source/data-source';
       <ng2-smart-table-title [source]="source" [column]="column" (sort)="sort.emit($event)"></ng2-smart-table-title>
     </div>
   `,
+  styles: [`
+    .ng2-smart-title {
+      text-align: left;
+    }
+  `]
 })
 export class ColumnTitleComponent {
 

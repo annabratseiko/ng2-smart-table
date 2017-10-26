@@ -9,88 +9,301 @@ import { Component } from '@angular/core';
 export class BasicExampleDataComponent {
 
   settings = {
+    actions: {
+      add: false,
+      edit: false,
+      delete: false
+    },
+    selectMode: 'multi',
     columns: {
-      id: {
-        title: 'ID',
+      account_name: {
+        title: 'Account name',
+        filter: false
       },
-      name: {
-        title: 'Full Name',
+      type: {
+        title: 'Type',
+        filter: false
       },
-      username: {
-        title: 'User Name',
+      account_mumber: {
+        title: 'Account number',
+        filter: false
       },
-      email: {
-        title: 'Email',
+      ccy: {
+        title: 'CCY',
+        filter: false
+      },
+      balance: {
+        title: 'Balance',
+        filter: false
+      },
+      last_transfer: {
+        title: 'Last transfer',
+        filter: false
+      },
+      account_mumber2: {
+        title: 'Account number',
+        filter: false
+      },
+      trustworthiness: {
+        title: 'Trusworthiness',
+        filter: false
       },
     },
+    pager:{
+      display: true,
+    }
   };
 
   data = [
     {
-      id: 1,
-      name: 'Leanne Graham',
-      username: 'Bret',
-      email: 'Sincere@april.biz',
+      account_name: 'Nicholas Runolfsdottir V',
+      type: 'Leanne Graham',
+      account_mumber: '53463457568678',
+      ccy: 'USD',
+      balance: 5654.6,
+      last_transfer: '10 Dec 2017',
+      account_mumber2: 5234534545,
+      trustworthiness: 'Perfect'
     },
     {
-      id: 2,
-      name: 'Ervin Howell',
-      username: 'Antonette',
-      email: 'Shanna@melissa.tv',
+      account_name: 'Nicholas Runolfsdottir V',
+      type: 'Ervin Howell',
+      account_mumber: '53463457568678',
+      ccy: 'USD',
+      balance: 5654.6,
+      last_transfer: '10 Dec 2017',
+      account_mumber2: 5234534545,
+      trustworthiness: 'Perfect'
     },
     {
-      id: 3,
-      name: 'Clementine Bauch',
-      username: 'Samantha',
-      email: 'Nathan@yesenia.net',
+      account_name: 'Nicholas Runolfsdottir V',
+      type: 'Clementine Bauch',
+      account_mumber: '53463457568678',
+      ccy: 'USD',
+      balance: 5654.6,
+      last_transfer: '10 Dec 2017',
+      account_mumber2: 5234534545,
+      trustworthiness: 'Perfect'
     },
     {
-      id: 4,
-      name: 'Patricia Lebsack',
-      username: 'Karianne',
-      email: 'Julianne.OConner@kory.org',
+      account_name: 'Nicholas Runolfsdottir V',
+      type: 'Patricia Lebsack',
+      account_mumber: '53463457568678',
+      ccy: 'USD',
+      balance: 5654.6,
+      last_transfer: '10 Dec 2017',
+      account_mumber2: 5234534545,
+      trustworthiness: 'Perfect'
     },
     {
-      id: 5,
-      name: 'Chelsey Dietrich',
-      username: 'Kamren',
-      email: 'Lucio_Hettinger@annie.ca',
+      account_name: 'Nicholas Runolfsdottir V',
+      type: 'Chelsey Dietrich',
+      account_mumber: '53463457568678',
+      ccy: 'USD',
+      balance: 5654.6,
+      last_transfer: '10 Dec 2017',
+      account_mumber2: 5234534545,
+      trustworthiness: 'Perfect'
     },
     {
-      id: 6,
-      name: 'Mrs. Dennis Schulist',
-      username: 'Leopoldo_Corkery',
-      email: 'Karley_Dach@jasper.info',
+      account_name: 'Nicholas Runolfsdottir V',
+      type: 'Mrs. Dennis Schulist',
+      account_mumber: '53463457568678',
+      ccy: 'USD',
+      balance: 5654.6,
+      last_transfer: '10 Dec 2017',
+      account_mumber2: 5234534545,
+      trustworthiness: 'Perfect'
     },
     {
-      id: 7,
-      name: 'Kurtis Weissnat',
-      username: 'Elwyn.Skiles',
-      email: 'Telly.Hoeger@billy.biz',
+      account_name: 'Nicholas Runolfsdottir V',
+      type: 'Kurtis Weissnat',
+      account_mumber: '53463457568678',
+      ccy: 'USD',
+      balance: 5654.6,
+      last_transfer: '10 Dec 2017',
+      account_mumber2: 5234534545,
+      trustworthiness: 'Perfect'
     },
     {
-      id: 8,
-      name: 'Nicholas Runolfsdottir V',
-      username: 'Maxime_Nienow',
-      email: 'Sherwood@rosamond.me',
+      account_name: 'Nicholas Runolfsdottir V',
+      type: 'Nicholas Runolfsdottir V',
+      account_mumber: '53463457568678',
+      ccy: 'USD',
+      balance: 5654.6,
+      last_transfer: '10 Dec 2017',
+      account_mumber2: 5234534545,
+      trustworthiness: 'Perfect'
     },
     {
-      id: 9,
-      name: 'Glenna Reichert',
-      username: 'Delphine',
-      email: 'Chaim_McDermott@dana.io',
+      account_name: 'Nicholas Runolfsdottir V',
+      type: 'Glenna Reichert',
+      account_mumber: '53463457568678',
+      ccy: 'USD',
+      balance: 5654.6,
+      last_transfer: '10 Dec 2017',
+      account_mumber2: 5234534545,
+      trustworthiness: 'Perfect'
     },
     {
-      id: 10,
-      name: 'Clementina DuBuque',
-      username: 'Moriah.Stanton',
-      email: 'Rey.Padberg@karina.biz',
+      account_name: 'Nicholas Runolfsdottir V',
+      type: 'Clementina DuBuque',
+      account_mumber: '53463457568678',
+      ccy: 'USD',
+      balance: 5654.6,
+      last_transfer: '10 Dec 2017',
+      account_mumber2: 5234534545,
+      trustworthiness: 'Perfect'
     },
     {
-      id: 11,
-      name: 'Nicholas DuBuque',
-      username: 'Nicholas.Stanton',
-      email: 'Rey.Padberg@rosamond.biz',
+      account_name: 'WWWWWWWWW @@@@@@',
+      type: 'Nicholas DuBuque',
+      account_mumber: '53463457568678',
+      ccy: 'USD',
+      balance: 5654.6,
+      last_transfer: '10 Dec 2017',
+      account_mumber2: 5234534545,
+      trustworthiness: 'Perfect'
+    },
+    {
+      account_name: 'Nicholas Runolfsdottir V',
+      type: 'Nicholas DuBuque',
+      account_mumber: '53463457568678',
+      ccy: 'USD',
+      balance: 5654.6,
+      last_transfer: '10 Dec 2017',
+      account_mumber2: 5234534545,
+      trustworthiness: 'Perfect'
+    },
+    {
+      account_name: 'Nicholas Runolfsdottir V',
+      type: 'Nicholas DuBuque',
+      account_mumber: '53463457568678',
+      ccy: 'USD',
+      balance: 5654.6,
+      last_transfer: '10 Dec 2017',
+      account_mumber2: 5234534545,
+      trustworthiness: 'Perfect'
+    },
+    {
+      account_name: 'Nicholas Runolfsdottir V',
+      type: 'Nicholas DuBuque',
+      account_mumber: '53463457568678',
+      ccy: 'USD',
+      balance: 5654.6,
+      last_transfer: '10 Dec 2017',
+      account_mumber2: 5234534545,
+      trustworthiness: 'Perfect'
+    },
+    {
+      account_name: 'Nicholas Runolfsdottir V',
+      type: 'Nicholas DuBuque',
+      account_mumber: '53463457568678',
+      ccy: 'USD',
+      balance: 5654.6,
+      last_transfer: '10 Dec 2017',
+      account_mumber2: 5234534545,
+      trustworthiness: 'Perfect'
+    },
+    {
+      account_name: 'Nicholas Runolfsdottir V',
+      type: 'Nicholas DuBuque',
+      account_mumber: '53463457568678',
+      ccy: 'USD',
+      balance: 5654.6,
+      last_transfer: '10 Dec 2017',
+      account_mumber2: 5234534545,
+      trustworthiness: 'Perfect'
+    },
+    {
+      account_name: 'Nicholas Runolfsdottir V',
+      type: 'Nicholas DuBuque',
+      account_mumber: '53463457568678',
+      ccy: 'USD',
+      balance: 5654.6,
+      last_transfer: '10 Dec 2017',
+      account_mumber2: 5234534545,
+      trustworthiness: 'Perfect'
+    },
+    {
+      account_name: 'Nicholas Runolfsdottir V',
+      type: 'Nicholas DuBuque',
+      account_mumber: '53463457568678',
+      ccy: 'USD',
+      balance: 5654.6,
+      last_transfer: '10 Dec 2017',
+      account_mumber2: 5234534545,
+      trustworthiness: 'Perfect'
+    },
+    {
+      account_name: 'Nicholas Runolfsdottir V',
+      type: 'Nicholas DuBuque',
+      account_mumber: '53463457568678',
+      ccy: 'USD',
+      balance: 5654.6,
+      last_transfer: '10 Dec 2017',
+      account_mumber2: 5234534545,
+      trustworthiness: 'Perfect'
+    },
+    {
+      account_name: 'Nicholas Runolfsdottir V',
+      type: 'Nicholas DuBuque',
+      account_mumber: '53463457568678',
+      ccy: 'USD',
+      balance: 5654.6,
+      last_transfer: '10 Dec 2017',
+      account_mumber2: 5234534545,
+      trustworthiness: 'Perfect'
+    },
+    {
+      account_name: 'Nicholas Runolfsdottir V',
+      type: 'Nicholas DuBuque',
+      account_mumber: '53463457568678',
+      ccy: 'USD',
+      balance: 5654.6,
+      last_transfer: '10 Dec 2017',
+      account_mumber2: 5234534545,
+      trustworthiness: 'Perfect'
+    },
+    {
+      account_name: 'Nicholas Runolfsdottir V',
+      type: 'Nicholas DuBuque',
+      account_mumber: '53463457568678',
+      ccy: 'USD',
+      balance: 5654.6,
+      last_transfer: '10 Dec 2017',
+      account_mumber2: 5234534545,
+      trustworthiness: 'Perfect'
+    },
+    {
+      account_name: 'Nicholas Runolfsdottir V',
+      type: 'Nicholas DuBuque',
+      account_mumber: '53463457568678',
+      ccy: 'USD',
+      balance: 5654.6,
+      last_transfer: '10 Dec 2017',
+      account_mumber2: 5234534545,
+      trustworthiness: 'Perfect'
+    },
+    {
+      account_name: 'Nicholas Runolfsdottir V',
+      type: 'Nicholas DuBuque',
+      account_mumber: '53463457568678',
+      ccy: 'USD',
+      balance: 5654.6,
+      last_transfer: '10 Dec 2017',
+      account_mumber2: 5234534545,
+      trustworthiness: 'Perfect'
+    },
+    {
+      account_name: 'Nicholas Runolfsdottir V',
+      type: 'Nicholas DuBuque',
+      account_mumber: '53463457568678',
+      ccy: 'USD',
+      balance: 5654.6,
+      last_transfer: '10 Dec 2017',
+      account_mumber2: 5234534545,
+      trustworthiness: 'Perfect'
     },
   ];
 }
